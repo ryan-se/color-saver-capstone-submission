@@ -1,0 +1,160 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<VBox alignment="CENTER" prefHeight="850.0" prefWidth="1000.0" spacing="20.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.capstone.capstonejavafx.view_controller.MainController">
+   <children>
+      <HBox prefHeight="100.0" prefWidth="200.0">
+         <children>
+            <Label text="Logged in as user: ">
+               <font>
+                  <Font size="16.0" />
+               </font></Label>
+            <Label fx:id="labelUserName">
+               <font>
+                  <Font size="16.0" />
+               </font>
+               <padding>
+                  <Insets left="5.0" right="20.0" />
+               </padding></Label>
+            <Button fx:id="buttonChangePassword" mnemonicParsing="false" onAction="#onActionButtonChangePassword" text="Change Password" />
+         </children>
+         <VBox.margin>
+            <Insets top="10.0" />
+         </VBox.margin>
+      </HBox>
+      <HBox prefHeight="366.0" prefWidth="1000.0">
+         <children>
+            <VBox prefHeight="366.0" prefWidth="500.0">
+               <children>
+                  <HBox maxHeight="100.0" prefHeight="31.0" prefWidth="500.0">
+                     <children>
+                        <Label text="Record new paint color, or edit existing color">
+                           <font>
+                              <Font size="16.0" />
+                           </font></Label>
+                     </children>
+                  </HBox>
+                  <GridPane prefHeight="322.0" prefWidth="500.0">
+                    <columnConstraints>
+                      <ColumnConstraints halignment="RIGHT" hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                      <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                    </columnConstraints>
+                    <rowConstraints>
+                      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                    </rowConstraints>
+                     <children>
+                        <Label text="Color Name" />
+                        <ComboBox fx:id="comboBoxColorName" onAction="#colorNameSelected" onTouchReleased="#colorNameSelected" prefHeight="58.0" prefWidth="150.0" promptText="Choose a color" GridPane.columnIndex="1" />
+                        <TextField fx:id="textFieldColor" promptText="Add New Color" GridPane.columnIndex="2" />
+                        <Label text="Sheen" GridPane.rowIndex="1" />
+                        <TextField fx:id="textFieldSheen" GridPane.columnIndex="2" GridPane.rowIndex="1" />
+                        <Label text="Brand" GridPane.rowIndex="2" />
+                        <ComboBox fx:id="comboBoxBrand" prefWidth="166.0" promptText="Select a brand" GridPane.columnIndex="2" GridPane.rowIndex="2" />
+                        <Label text="Area Painted" GridPane.rowIndex="3" />
+                        <TextField fx:id="textFieldArea" GridPane.columnIndex="2" GridPane.rowIndex="3" />
+                        <Label text="Date Purchased" GridPane.rowIndex="4" />
+                        <!-- <TextField fx:id="textFieldDatePainted" /> !-->
+                         <DatePicker fx:id="paintedDatePicker" GridPane.columnIndex="2" GridPane.rowIndex="5" />
+                        <Label text="Date Painted" GridPane.rowIndex="5" />
+                        <!-- <TextField fx:id="textFieldDatePurchased" /> !-->
+                         <DatePicker fx:id="purchasedDatePicker" GridPane.columnIndex="2" GridPane.rowIndex="4" />
+                        <Label text="Color ID" GridPane.rowIndex="6" />
+                        <TextField fx:id="textFieldColorID" editable="false" promptText="Automatically Generated" GridPane.columnIndex="2" GridPane.rowIndex="6" />
+                        <Button fx:id="buttonSaveEntry" mnemonicParsing="false" onAction="#onActionSaveEntry" text="Save" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="7" />
+                        <Button fx:id="buttonClearEntries" mnemonicParsing="false" onAction="#onActionClearEntry" text="Clear" GridPane.columnIndex="1" GridPane.halignment="RIGHT" GridPane.rowIndex="7" />
+                     </children>
+                     <VBox.margin>
+                        <Insets top="10.0" />
+                     </VBox.margin>
+                  </GridPane>
+                  <HBox prefHeight="100.0" prefWidth="200.0" />
+               </children>
+            </VBox>
+            <VBox prefHeight="366.0" prefWidth="479.0">
+               <children>
+                  <HBox prefHeight="100.0" prefWidth="200.0">
+                     <children>
+                        <Button fx:id="buttonViewLatestColors" alignment="CENTER" mnemonicParsing="false" onAction="#onActionButtonViewLatestColors" prefHeight="100.0" prefWidth="200.0" text="View Latest Colors" />
+                     </children>
+                     <VBox.margin>
+                        <Insets left="125.0" />
+                     </VBox.margin>
+                  </HBox>
+                  <HBox prefHeight="100.0" prefWidth="200.0">
+                     <children>
+                        <Button fx:id="buttonViewPopularColors" alignment="CENTER" mnemonicParsing="false" onAction="#onActionButtonViewPopularColors" prefHeight="100.0" prefWidth="200.0" text="View Most Popular Colors" />
+                     </children>
+                     <VBox.margin>
+                        <Insets left="125.0" top="35.0" />
+                     </VBox.margin>
+                  </HBox>
+               </children>
+               <HBox.margin>
+                  <Insets left="15.0" />
+               </HBox.margin>
+            </VBox>
+         </children>
+      </HBox>
+      <HBox prefHeight="100.0" prefWidth="200.0">
+         <children>
+            <Button fx:id="buttonEditSelectedColor" mnemonicParsing="false" onAction="#onActionEditSelectedColor" text="Edit Selected Color">
+               <HBox.margin>
+                  <Insets left="15.0" />
+               </HBox.margin></Button>
+            <Button fx:id="buttonDeleteSelectedcolor" mnemonicParsing="false" onAction="#onActionDeleteSelectedColor" text="Delete Selected Color">
+               <HBox.margin>
+                  <Insets left="15.0" />
+               </HBox.margin></Button>
+         </children>
+      </HBox>
+      <TableView fx:id="colorTable" prefHeight="454.0" prefWidth="1000.0">
+        <columns>
+          <TableColumn fx:id="tableColumnColor" prefWidth="75.0" text="Color" />
+          <TableColumn fx:id="tableColumnSheen" prefWidth="75.0" text="Sheen" />
+            <TableColumn fx:id="tableColumnBrand" prefWidth="75.0" text="Brand" />
+            <TableColumn fx:id="tableColumnArea" prefWidth="75.0" text="Area Painted" />
+            <TableColumn fx:id="tableColumnDatePurchasesd" prefWidth="75.0" text="Date Purchased" />
+            <TableColumn fx:id="tableColumnDatePainted" prefWidth="75.0" text="Date Painted" />
+        </columns>
+         <columnResizePolicy>
+            <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+         </columnResizePolicy>
+      </TableView>
+      <HBox nodeOrientation="RIGHT_TO_LEFT" prefHeight="100.0" prefWidth="200.0">
+         <children>
+            <Button fx:id="buttonHelp" mnemonicParsing="false" onAction="#onActionButtonHelp" text="Help" />
+            <Button fx:id="buttonLogOutAndExit" alignment="CENTER_RIGHT" mnemonicParsing="false" onAction="#onActionButtonExit" text="Log Out &amp; Exit Program">
+               <HBox.margin>
+                  <Insets left="10.0" right="10.0" />
+               </HBox.margin></Button>
+            <Button fx:id="buttonLogOut" alignment="CENTER_RIGHT" mnemonicParsing="false" onAction="#onActionButtonLogOut" text="Log Out" />
+            <Label fx:id="errorLabel">
+               <HBox.margin>
+                  <Insets left="10.0" right="10.0" />
+               </HBox.margin></Label>
+         </children>
+      </HBox>
+   </children>
+</VBox>
